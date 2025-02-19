@@ -40,7 +40,7 @@ export default function Header() {
             </style>
 
             <header className="flex flex-col-reverse sm:flex-row items-center md:items-start justify-between mt-2 md:mt-10">
-                <div className="text-light tracking-wide max-w-xl text-base md:text-xl leading-relaxed md:leading-relaxed whitespace-pre-line">
+                <div className="text-light tracking-wide max-w-xl text-center md:text-left text-base md:text-xl leading-relaxed md:leading-relaxed whitespace-pre-line">
                     {displayedText.replace(/undefined/g, "").trim() || ""}
                 </div>
                 <img src="/retro.png" className="w-1/3 justify-end floating my-10" alt="Profile" />
