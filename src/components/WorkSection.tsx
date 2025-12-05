@@ -1,3 +1,5 @@
+import SectionTitle from "./SectionTitle";
+
 const projects = [
     {
         title: "NTIC Informatique",
@@ -52,8 +54,8 @@ const projects = [
 export default function WorkSection() {
     return (
         <section className="py-16" id="work">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <SectionTitle title="Projects" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                 {projects.map((project) => (
                     <ProjectItem key={project.title} {...project} />
                 ))}
@@ -71,19 +73,67 @@ function ProjectItem({ title, description, role, tech, image, link }: {
     link?: string;
 }) {
     return (
-        <div className="rounded-3xl relative group border-2 border-transparent hover:border-[#2563eb] transition-all duration-300 overflow-hidden">
-            <img src={image} alt={title} className="w-full h-64 object-cover rounded-3xl" />
+        <div className="rounded-3xl relative group overflow-hidden transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
+            {/* Animated gradient border */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb] via-purple-500 to-pink-500 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm -z-10"></div>
 
-            <div className="absolute inset-0 bg-black bg-opacity-80 p-6 flex flex-col justify-end rounded-3xl">
-                <h3 className="text-xl font-bold text-white mb-1">{title}</h3>
-                <p className="text-[#2563eb] text-sm mb-2">{role}</p>
-                <p className="text-gray-300 text-sm mb-2">{tech}</p>
-                <p className="text-white text-sm mb-2">{description}</p>
-                {link && (
-                    <a href={link} target="_blank" rel="noopener noreferrer" className="mt-2 text-[#2563eb] hover:text-[#2563eb]/80 font-medium">
-                        View Project →
-                    </a>
-                )}
+            {/* Card wrapper */}
+            <div className="relative rounded-3xl overflow-hidden border-2 border-gray-800 group-hover:border-transparent transition-all duration-300">
+                {/* Image with zoom effect */}
+                <div className="relative h-64 overflow-hidden">
+                    <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                </div>
+
+                {/* Content overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent p-6 flex flex-col justify-end">
+                    {/* Role badge */}
+                    <span className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-[#2563eb] to-purple-600 rounded-full text-xs font-semibold text-white shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                        {role}
+                    </span>
+
+                    {/* Title with glow effect */}
+                    <h3 className="text-2xl font-bold text-white mb-2 transform transition-all duration-300 group-hover:translate-x-1 group-hover:text-shadow-glow">
+                        {title}
+                    </h3>
+
+                    {/* Tech stack */}
+                    <p className="text-gray-300 text-sm mb-2 line-clamp-1 transition-colors duration-300 group-hover:text-gray-200">
+                        {tech}
+                    </p>
+
+                    {/* Description */}
+                    <p className="text-gray-400 text-sm mb-3 transition-colors duration-300 group-hover:text-gray-300">
+                        {description}
+                    </p>
+
+                    {/* Link with arrow animation */}
+                    {link && (
+                        <a
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-[#2563eb] hover:text-[#3b82f6] font-semibold transition-all duration-300 group-hover:gap-3"
+                        >
+                            <span>View Project</span>
+                            <svg
+                                className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+                    )}
+                </div>
+
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none"></div>
             </div>
         </div>
     );
