@@ -1,50 +1,32 @@
-import { useState, useEffect } from "react";
+const headerData = {
+    title: "I’m Sidahmed Frioui — Full Stack Developer",
+    description: "I build scalable, high-performance web applications with clean, maintainable code. Passionate about UI effects, animations, and intuitive user experiences."
+};
 
 export default function Header() {
-    const headerBrief = "I’m a Full Stack Developer with a strong passion for UI effects, animations, and building intuitive, dynamic user experiences. I focus on writing clean, maintainable code and solving complex problems efficiently.";
-    const headerDetails = `Over the past four years, I have worked on various real-world applications, contributing to both frontend and backend development. My expertise includes modern web technologies such as HTML, CSS, JavaScript, TypeScript, Angular, and Flutter, as well as backend development with Node.js, NestJS, and PHP. I have built and optimized responsive, high-performance web applications with a focus on scalability and maintainability.
-    I have experience in full system overhauls, from rebuilding authentication systems to complete UI redesigns and major code refactoring. My work often involves integrating Firebase, MySQL, and other backend services, ensuring smooth and efficient data handling.
-    While web and app development are my main focus, I’m also interested in AI and machine learning and how they can be leveraged to enhance modern applications.`;
-
-    const [displayedText, setDisplayedText] = useState("");
-    const fullText = `${headerBrief}\n\n${headerDetails}`;
-    const speed = 15;
-
-    useEffect(() => {
-        let index = 0;
-        const interval = setInterval(() => {
-            if (index < fullText.length) {
-                setDisplayedText((prev) => prev + fullText[index]);
-                index++;
-            } else {
-                clearInterval(interval);
-            }
-        }, speed);
-
-        return () => clearInterval(interval);
-    }, []);
-
     return (
-        <>
-            <style jsx>{`
-                @keyframes float {
-                    0% { transform: translateY(0px); }
-                    50% { transform: translateY(-15px); }
-                    100% { transform: translateY(0px); }
-                }
+        <header className="flex flex-col-reverse md:flex-row items-center justify-between min-h-[70vh]">
 
-                .floating {
-                    animation: float 2s ease-in-out infinite;
-                }
-            `}
-            </style>
+            <div className="max-w-xl text-center md:text-left">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                    {headerData.title}
+                </h1>
 
-            <header className="flex flex-col-reverse sm:flex-row items-center md:items-start justify-between mt-2 md:mt-10">
-                <div className="text-light tracking-wide max-w-xl text-center md:text-left text-base md:text-xl leading-relaxed md:leading-relaxed whitespace-pre-line">
-                    {displayedText.replace(/undefined/g, "").trim() || ""}
+                <p className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">
+                    {headerData.description}
+                </p>
+
+                <div className="flex justify-center md:justify-start gap-4">
+                    <a href="#work" className="bg-[#2563eb] hover:bg-[#2563eb]/80 text-black font-bold py-2 px-6 rounded transition">
+                        See My Work
+                    </a>
+                    <a href="#contact" className="border border-[#2563eb] hover:border-[#2563eb]/80 text-[#2563eb] hover:text-[#2563eb]/80 font-bold py-2 px-6 rounded transition">
+                        Contact Me
+                    </a>
                 </div>
-                <img src="/retro.png" className="w-1/3 justify-end floating my-10" alt="Profile" />
-            </header>
-        </>
+            </div>
+
+            <img src="/retro.png" alt="Profile" className="w-64 md:w-80 mb-10 md:mb-0 animate-bounce" />
+        </header>
     );
 }

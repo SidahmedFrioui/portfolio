@@ -10,15 +10,15 @@ import WorkSection from "@/components/WorkSection";
 export default function Home() {
   return (
     <>
-        <div className="min-h-screen bg-[#0c0a09] text-white py-6 px-6 md:px-16">
-            <Header />
-            <Experience />
-            <Skills />
-            <Study />
-            <Qualities />
-            <WorkSection />
-            <Ui />
-        </div>
+      <div className="min-h-screen bg-[#0c0a09] text-white py-6 px-6 md:px-16">
+        <Header />
+        <WorkSection />
+        <Experience />
+        <Skills />
+        <Study />
+        <Qualities />
+        <Ui />
+      </div>
     </>
   );
 }

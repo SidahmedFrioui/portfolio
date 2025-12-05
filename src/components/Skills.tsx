@@ -1,32 +1,52 @@
-import Skill from "./Skill";
+const coreSkills = [
+    { title: "Frontend", icon: "/palette.png", tags: ["React", "Angular", "UI/UX"] },
+    { title: "Backend", icon: "/backend.png", tags: ["NestJS", "Express", "Node.js", "TypeScript"] },
+];
 
-export type PortfolioSkill = {
-    title: string;
-    icon: string;
-    tags: string[];
-}
-
-const skills: PortfolioSkill[] = [
-    {title: "Programming languages and frameworks", icon: "/programming.png", tags: ["Typescript", "Javascript", "Python", "C", "PHP"]},
-    {title: "Devops", icon: "/docker.png", tags: ["Docker", "Nginx", "CI/CD", "Git", "Kubernetes", "AWS", "Linux"]},
-    {title: "Data storage and caching", icon: "/database.png", tags: ["MongoDB", "Elasticsearch", "Redis", "MySQL", "PostgreSQL"]},
-    {title: "Frontend", icon: "/palette.png", tags: ["UI/UX", "Angular", "React", "Next.js", "Tailwind CSS"]},
-    {title: "App publishing", icon: "store.png", tags: ["iOS App Store", "TestFlight", "Android Play Store", "Play Store Beta tracks"]},   
-    {title: "Backend", icon: "backend.png", tags: ["NestJS", "Express", "Hono", "Laravel"]},
-    {title: "Mobile", icon: "mobile.png", tags: ["Flutter"]},
-    {title: "Integrations", icon: "api.png", tags: ["Stripe", "Firebase", "Resend", "Google Maps", "In-app payments"]},
-]
+const secondarySkills = [
+    { title: "Databases & Caching", icon: "/database.png", tags: ["PostgreSQL", "MySQL", "MongoDB", "Redis"] },
+    { title: "DevOps & Deployment", icon: "/docker.png", tags: ["Docker", "CI/CD", "Nginx", "AWS"] },
+    { title: "Mobile & Integrations", icon: "/mobile.png", tags: ["Flutter", "Firebase", "Stripe", "Google Maps"] },
+];
 
 export default function Skills() {
     return (
-        <section className="py-16 px-0 flex flex-col gap-8 items-center">
-            <h2 className="text-3xl text-center font-bold">Superpowers</h2>
-            <p className="text-blue-400 text-center text-xl max-w-2xl">I consider all these as tools and instruments to create my art. While I'm trying to think of one specialization to deep dive in, I've used these technologies at some point and have thoroughly enjoyed creating with them. By no means, can I call myself an expert in most of these things, but hey, I believe that once you know the what and why of it, the answer to how is just a few well-executed Google searches away!</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {skills.map((skill) => (
-                    <Skill key={skill.title} title={skill.title} icon={skill.icon} tags={skill.tags} />
-                ))}
+        <section className="py-16 flex flex-col gap-12 items-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Skills & Expertise</h2>
+
+            {/* Core Expertise */}
+            <div className="w-full">
+                <h3 className="text-xl text-green-400 mb-6 font-semibold">Core Expertise</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {coreSkills.map(skill => <Skill key={skill.title} {...skill} primary />)}
+                </div>
+            </div>
+
+            {/* Secondary Skills */}
+            <div className="w-full mt-12">
+                <h3 className="text-xl text-blue-400 mb-6 font-semibold">Other Skills & Tools</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {secondarySkills.map(skill => <Skill key={skill.title} {...skill} />)}
+                </div>
             </div>
         </section>
+    );
+}
+
+function Skill({ title, icon, tags, primary }: { title: string; icon: string; tags: string[]; primary?: boolean }) {
+    return (
+        <div className={`flex flex-col items-start bg-[#121825] rounded-3xl p-6 gap-4 max-w-xs ${primary ? "border-2 border-green-500" : ""}`}>
+            <div className="flex items-center gap-3">
+                <img src={icon} alt={title} className="w-8 h-8" />
+                <h4 className="text-white font-semibold text-md">{title}</h4>
+            </div>
+            <div className="flex flex-wrap gap-2">
+                {tags.map(tag => (
+                    <span key={tag} className={`text-sm font-medium px-3 py-1 rounded-full ${primary ? "bg-green-500 text-black" : "bg-[#142d30] text-[#2dd4bf]"}`}>
+                        {tag}
+                    </span>
+                ))}
+            </div>
+        </div>
     );
 }
