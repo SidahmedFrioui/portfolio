@@ -17,11 +17,11 @@ export default function Header() {
                 </p>
 
                 <div className="flex justify-center md:justify-start gap-4">
-                    <a href="#work" className="bg-[#2563eb] hover:bg-[#2563eb]/80 text-black font-bold py-2 px-6 rounded transition">
-                        See My Work
+                    <a href="mailto:frioui.sidahmed19@gmail.com" className="bg-[#2563eb] hover:bg-[#2563eb]/80 text-black font-bold py-2 px-6 rounded transition">
+                        Hire me
                     </a>
-                    <a href="#contact" className="border border-[#2563eb] hover:border-[#2563eb]/80 text-[#2563eb] hover:text-[#2563eb]/80 font-bold py-2 px-6 rounded transition">
-                        Contact Me
+                    <a href="#work" className="border border-[#2563eb] hover:border-[#2563eb]/80 text-[#2563eb] hover:text-[#2563eb]/80 font-bold py-2 px-6 rounded transition">
+                        See My Work
                     </a>
                 </div>
             </div>

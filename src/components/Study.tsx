@@ -41,7 +41,7 @@ function StudyItem({ degree, institution, duration, highlights }: PortfolioStudy
             <p className="text-gray-400 text-sm">{duration}</p>
             <ul className="mt-2 flex flex-wrap gap-2">
                 {highlights.map((item, idx) => (
-                    <li key={idx} className="bg-green-500 text-black px-2 py-1 rounded text-sm font-medium">
+                    <li key={idx} className="bg-[#2563eb] text-black px-2 py-1 rounded text-sm font-medium">
                         {item}
                     </li>
                 ))}

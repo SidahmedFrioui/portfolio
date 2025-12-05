@@ -16,15 +16,15 @@ export default function Skills() {
 
             {/* Core Expertise */}
             <div className="w-full">
-                <h3 className="text-xl text-green-400 mb-6 font-semibold">Core Expertise</h3>
+                <h3 className="text-xl text-[#2563eb] mb-6 font-semibold">Core Expertise</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {coreSkills.map(skill => <Skill key={skill.title} {...skill} primary />)}
+                    {coreSkills.map(skill => <Skill key={skill.title} {...skill} />)}
                 </div>
             </div>
 
             {/* Secondary Skills */}
             <div className="w-full mt-12">
-                <h3 className="text-xl text-blue-400 mb-6 font-semibold">Other Skills & Tools</h3>
+                <h3 className="text-xl text-[#2563eb] mb-6 font-semibold">Other Skills & Tools</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {secondarySkills.map(skill => <Skill key={skill.title} {...skill} />)}
                 </div>
@@ -33,16 +33,16 @@ export default function Skills() {
     );
 }
 
-function Skill({ title, icon, tags, primary }: { title: string; icon: string; tags: string[]; primary?: boolean }) {
+function Skill({ title, icon, tags }: { title: string; icon: string; tags: string[]; }) {
     return (
-        <div className={`flex flex-col items-start bg-[#121825] rounded-3xl p-6 gap-4 max-w-xs ${primary ? "border-2 border-green-500" : ""}`}>
+        <div className={`flex flex-col items-start bg-[#121825] rounded-3xl p-6 gap-4 max-w-xs`}>
             <div className="flex items-center gap-3">
                 <img src={icon} alt={title} className="w-8 h-8" />
                 <h4 className="text-white font-semibold text-md">{title}</h4>
             </div>
             <div className="flex flex-wrap gap-2">
                 {tags.map(tag => (
-                    <span key={tag} className={`text-sm font-medium px-3 py-1 rounded-full ${primary ? "bg-green-500 text-black" : "bg-[#142d30] text-[#2dd4bf]"}`}>
+                    <span key={tag} className={`text-sm font-medium px-3 py-1 rounded-full bg-[#142d30] text-[#2dd4bf]`}>
                         {tag}
                     </span>
                 ))}

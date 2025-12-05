@@ -3,7 +3,7 @@ const workData = [
         company: "Youchoz",
         title: "Full Stack Developer",
         duration: "Aug 2024 – Present",
-        tech: "React, Angular, NestJS, Firebase, PostgreSQL",
+        tech: "Angular, React native, Firebase",
         highlights: [
             "Rebuilt entire website & authentication system, improving performance and maintainability",
             "Led complete UI redesign for modern, responsive experience",
@@ -22,6 +22,20 @@ const workData = [
             "Developed admin dashboard & storefront with SSR, optimizing speed and SEO"
         ],
         logo: "/sougplus.png"
+    },
+    {
+        company: "Karabic",
+        title: "Full Stack Developer (Freelance)",
+        duration: "Sep 2025",
+        tech: "Astro, Strapi",
+        highlights: [
+            "Architected and developed the entire blog platform with Astro for blazing-fast performance and SEO",
+            "Designed clean UI/UX focused on readability and structured content presentation",
+            "Integrated Strapi CMS with custom content types for easy article management",
+            "Implemented dynamic routing, pagination, and author-based filtering",
+            "Optimized metadata, sitemap, and OpenGraph tags for maximum search visibility"
+        ],
+        logo: "/karabic_logo.png"
     }
 ];
 
@@ -37,7 +51,7 @@ export default function WorkExperience() {
                             <div className="ml-4">
                                 <h3 className="text-xl font-bold text-white">{job.title}</h3>
                                 <p className="text-gray-400 text-sm">{job.company} • {job.duration}</p>
-                                <p className="text-green-400 text-sm mt-1">{job.tech}</p>
+                                <p className="text-[#2563eb] text-sm mt-1">{job.tech}</p>
                             </div>
                         </div>
                         <ul className="mt-4 list-disc list-inside text-gray-300">
