@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     title: "Sidahmed Frioui — Full Stack Developer Portfolio",
     description:
       "Full Stack Developer skilled in React, Angular, NestJS, and mobile development.",
-    url: "https://your-domain.com",
+    url: "https://sidahmedfrioui.vercel.app",
     siteName: "Sidahmed Frioui Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og.jpg",
         width: 1200,
         height: 630,
         alt: "Sidahmed Frioui Portfolio Preview",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "Sidahmed Frioui — Full Stack Developer",
     description:
       "Portfolio showcasing React, Angular, NestJS, and modern web/mobile projects.",
-    images: ["/og-image.png"],
+    images: ["/og.jpg"],
   },
   robots: {
     index: true,
@@ -60,6 +60,9 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  verification: {
+    google: "Ikfr0OswDYru9it5O_X0xJIHfLAlVd5Y4fTXQByt2TQ"
+  }
 };
 
 export default function RootLayout({
@@ -69,9 +72,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta name="google-site-verification" content="Ikfr0OswDYru9it5O_X0xJIHfLAlVd5Y4fTXQByt2TQ" />
-      </head>
       <body
         className={`${poppins.variable} antialiased`}
       >
